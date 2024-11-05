@@ -31,7 +31,6 @@ func main() {
 			}
 		}
 	}
-
 	/*CSV INPUT*/
 	if len(fileStore) > 2 {
 		log.Fatalf("\nToo many input files\nPlease delete the extra file and try again")
@@ -107,6 +106,8 @@ func main() {
 	}
 	writer := csv.NewWriter(out)
 	defer writer.Flush()
+
+	writer.Write([]string{"Matches"})
 
 	var count int
 	for _, v := range slice_one {
